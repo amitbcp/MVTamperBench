@@ -11,7 +11,7 @@ MVTamperBench is a comprehensive benchmark designed to evaluate the robustness o
 5. **Substitution**: Frames are replaced with frames from another video to simulate content substitution.
 
 The below image shows how the tampering effects work in a video.
-![Tampered Frames](https://github.com/amitbcp/TamperBench/blob/main/github.io/RadarChart_Overall.png](https://github.com/amitbcp/TamperBench/blob/main/github.io/Tampering_Frames.png "Frame Comparison of Tampering Effects")
+![Tampered Frames](https://github.com/amitbcp/TamperBench/blob/main/github.io/Tampering_Frames.png "Frame Comparison of Tampering Effects")
 
 This benchmark facilitates robust evaluations using state-of-the-art models across diverse tampering effects, enabling the development of tamper-resilient video understanding systems.
 
@@ -101,7 +101,7 @@ MVBench-Dataset/
    git clone https://github.com/your-repo/mvtamperbench.git
    cd mvtamperbench
    ```
-![Distribution image](https://github.com/user-attachments/assets/16ea4eac-3b67-4816-942f-48776799d8aa)
+
 
 2. Install dependencies:
    ```bash

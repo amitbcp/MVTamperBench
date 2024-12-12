@@ -56,7 +56,8 @@ MVBench-Dataset/
 - **Models**: 20 state-of-the-art models, including molmo variants, InternVL2 variants, and Llama-3-VILA models.
 - **Evaluation Metrics**:
   - *Accuracy*: Correctly identified tampering effects.
-  - *Robustness Coefficient*: Stability across tampering types.
+  - *Robustness Coefficient*: Stability across tampering types.![Distribution image]()
+
   - *Latency*: Computational efficiency.
 - **Environment**: Experiments conducted on NVIDIA A100 GPUs.
 
@@ -68,7 +69,11 @@ MVBench-Dataset/
 ---
 
 ### Visualizations
+#### Heatmap of Model Performance
+![Heatmap of Model Performance](.png "Heatmap showing model robustness across tampering types")
 
+#### Radar Chart of Robustness
+![Radarchart of Model Performance](.png "Heatmap showing model robustness across tampering types")
 (Add space for heatmaps, radar charts, and bar charts of model performance.)
 
 ---
@@ -90,6 +95,7 @@ MVBench-Dataset/
    git clone https://github.com/your-repo/mvtamperbench.git
    cd mvtamperbench
    ```
+![Distribution image](https://github.com/user-attachments/assets/16ea4eac-3b67-4816-942f-48776799d8aa)
 
 2. Install dependencies:
    ```bash
@@ -101,10 +107,6 @@ MVBench-Dataset/
    python run_benchmark.py --dataset <path_to_dataset> --output <output_directory>
    ```
 
-4. Visualize Results:
-   - Heatmaps, radar charts, and bar charts are saved in the output directory.
-
----
 
 ## Citation
 If you use MVTamperBench in your research, please cite:

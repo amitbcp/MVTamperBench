@@ -79,7 +79,7 @@ MVBench-Dataset/
 ![Radarchart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/github.io/RadarChart_Overall.png "Radar Chart showing Models perfromance")
 
 ### Bar Chart for Visualizing the models performance across the Tampering Effects
-![Bar Chart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/github.io/model_performance_chart_corrected.png.png "Model Performance on each Tampering Effects")
+![Bar Chart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/github.io/model_performance_chart_corrected.png "Model Performance on each Tampering Effects")
 
 
 ---

@@ -72,14 +72,18 @@ MVBench-Dataset/
 ---
 
 ### Visualizations
+
+#### Overall Model Performance
+![Overall Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/OverallPerformancebar.jpg "Overall Model Performance showcases the robustness og the models towards the tampering effects")
+
 #### Heatmap of Model Performance
-![Heatmap of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/github.io/Heatmap_of_Effects.jpg "Heatmap showing model robustness across tampering types")
+![Heatmap of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/Heatmap_of_Effects.jpg "Heatmap showing model robustness across tampering types")
 
 #### Radar Chart of Robustness
-![Radarchart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/github.io/effects_on_models_radar_chart_from_dataframe.jpg "Radar Chart showing Models perfromance")
+![Radarchart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/effects_on_models_radar_chart_from_dataframe.jpg "Radar Chart showing Models perfromance")
 
 ### Bar Chart for Visualizing the models performance across the Tampering Effects
-![Bar Chart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/github.io/model_performance_chart_from_dataframe.jpg "Model Performance on each Tampering Effects")
+![Bar Chart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/model_performance_chart_from_dataframe.jpg "Model Performance on each Tampering Effects")
 
 
 ---

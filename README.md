@@ -11,7 +11,7 @@ MVTamperBench is a comprehensive benchmark designed to evaluate the robustness o
 5. **Substitution**: Frames are replaced with frames from another video to simulate content substitution.
 
 The below image shows how the tampering effects work in a video.
-![Tampered Frames](https://github.com/amitbcp/TamperBench/blob/main/github.io/Tampering_Frames.png "Frame Comparison of Tampering Effects")
+![Tampered Frames](https://github.com/amitbcp/TamperBench/blob/main/Images/Tampering_Frames_cut.png "Frame Comparison of Tampering Effects")
 
 This benchmark facilitates robust evaluations using state-of-the-art models across diverse tampering effects, enabling the development of tamper-resilient video understanding systems.
 
@@ -74,16 +74,16 @@ MVBench-Dataset/
 ### Visualizations
 
 #### Overall Model Performance
-![Overall Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/OverallPerformancebar.jpg "Overall Model Performance showcases the robustness og the models towards the tampering effects")
+![Overall Model Performance](https://github.com/amitbcp/TamperBench/blob/main/Images/OverallPerformancebar.jpg "Overall Model Performance showcases the robustness og the models towards the tampering effects")
 
 #### Heatmap of Model Performance
-![Heatmap of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/Heatmap_of_Effects.jpg "Heatmap showing model robustness across tampering types")
+![Heatmap of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/Images/Heatmap_of_Effects.jpg "Heatmap showing model robustness across tampering types")
 
 #### Radar Chart of Robustness
-![Radarchart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/effects_on_models_radar_chart_from_dataframe.png "Radar Chart showing Models perfromance")
+![Radarchart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/Images/effects_on_models_radar_chart_from_dataframe.png "Radar Chart showing Models perfromance")
 
 ### Bar Chart for Visualizing the models performance across the Tampering Effects
-![Bar Chart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/docs/model_performance_chart_from_dataframe.jpg "Model Performance on each Tampering Effects")
+![Bar Chart of Model Performance](https://github.com/amitbcp/TamperBench/blob/main/Images/model_performance_chart_from_dataframe.jpg "Model Performance on each Tampering Effects")
 
 
 ---

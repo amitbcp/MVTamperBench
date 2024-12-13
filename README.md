@@ -59,7 +59,7 @@ MVBench-Dataset/
 - **Models**: 20 state-of-the-art models, including molmo variants, InternVL2 variants, and Llama-3-VILA models.
 - **Evaluation Metrics**:
   - *Accuracy*: Correctly identified tampering effects.
-  - *Robustness Coefficient*: Stability across tampering types.![Distribution image](https://github.com/amitbcp/TamperBench/blob/main/github.io/Distribution%20image.png "Tampered Video Length Distribution")
+  - *Robustness Coefficient*: Stability across tampering types.![Distribution image](https://github.com/amitbcp/TamperBench/blob/main/Images/Distribution%20image.png "Tampered Video Length Distribution")
 
   - *Latency*: Computational efficiency.
 - **Environment**: Experiments conducted on NVIDIA A100 GPUs.

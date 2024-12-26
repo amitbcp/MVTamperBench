@@ -1,313 +1,533 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research Paper Showcase for Video-Language Models">
-    <title>MVTamperBench</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        /* General Styling */
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #1e1e1e;
-            background-color: #ffffff;
-            overflow-x: hidden;
-            text-align: center; /* Center alignment for the page */
-        }
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="<b>MVTamperBench</b>: Adversarial Benchmark for Evaluating Video-Language Models">
 
-        header {
-            background: #f7f7f7;
-            padding: 4rem 2rem;
-        }
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords"
+    content="Multimodal Benchmark, Multimodal Learning, Vision and Language Dataset, Vision Language Model, LLM, VLM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            font-weight: 700;
-            color: #181818;
-        }
 
-        header p {
-            margin-top: 0.5rem;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #202020;
-        }
+  <title>MVTamperBench</title>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MFCT45H');</script>
+  <!-- End Google Tag Manager -->
 
-        nav {
-            margin-top: 2rem;
-        }
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-        nav a {
-            text-decoration: none;
-            color: white;
-            background: #005e91;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            margin: 0 1rem;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="icon" href="static/images/icon.png">
 
-        nav a:hover {
-            background: #001017;
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(2, 132, 192, 0.949);
-        }
-
-        .hero {
-            background: #dcdcdc;
-            padding: 0.5rem;
-            color: #202020;
-            font-size: 1.6rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            width: 75%;
-            
-        }
-
-        main {
-            padding: 3rem 2rem;
-            max-width: 800px; /* Centralize main content */
-            margin: 0 auto;
-            
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        section h2 {
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.2rem;
-            font-size: 2.5rem;
-            color: #181818;
-            font-weight: 700;
-        }
-
-        section h2:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 5px;
-            background: #0077b6;
-        }
-
-        .content {
-            text-align: justify;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #444;
-        }
-
-        .links a {
-            display: inline-block;
-            text-decoration: none;
-            color: white;
-            background:#005e91;
-            padding: 0.8rem 1.6rem;
-            border-radius: 50px;
-            margin: 1rem;
-            font-size: 1.2rem;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .links a:hover {
-            background: #001017;
-            transform: scale(1.05);
-            box-shadow:  0 4px 8px rgba(2, 132, 192, 0.949);
-        }
-
-        .line-design {
-            text-align: center;
-            margin: 3rem 0;
-            color: #181818;
-        }
-
-        .line-design span {
-            padding: 0 1.5rem;
-            font-size: 1.8rem;
-            color: #202020;
-            font-weight: 800;
-        }
-
-        img {
-            width: 70%;
-            height: auto;
-            margin: 1rem 0;
-            border-radius: 10px; /* Optional for aesthetics */
-        }
-
-        .images{
-            text-align: justify;
-        }
-
-        .Graphs{
-            text-align: justify;
-        }
-
-        footer {
-            background: #f7f7f7;
-            color: #333;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
-        }
-
-        footer a {
-            color: #0077b6;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: auto;
-            margin: 0 1rem;
-            transition: transform 0.3s;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.8rem 1.5rem;
-            }
-
-            .hero {
-                font-size: 1.2rem;
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav a {
-                margin: 0.5rem 0;
-                display: block;
-            }
-
-            .hero {
-                font-size: 1rem;
-                padding: 1rem;
-            }
-        }
-    </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
+
 <body>
-    <header>
-        <h1>MVTamperBench: Adversarial Benchmark for Evaluating the Robustness of Video Language Model</h1>
-        <p>Comprehensive evaluation framework for robust video-language models</p>
-        <nav>
-            <a href="#abstract">Abstract</a>
-            <a href="#images">Images</a>
-            <a href="#graphs">Graphs</a>
-            <a href="#leaderboard">Leaderboard</a>
-            <a href="#links">Links</a>
-        </nav>
-    </header>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFCT45H" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-    <div class="hero">
-        <p>Explore our benchmark, uncover insights, and evaluate cutting-edge VLM models.</p>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://amitbcp.github.io/TamperBench/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
 
-    <main>
-        <section id="abstract">
-            <h2>Abstract</h2>
-            <div class="content">
-                <p>
-                    Interaction between multiple modalities is an area that has received great attention in recent years. Video Language Models (VLMs) constitutes a relatively newer sub-domain of the existing ones that explore multimodal understanding, but are also quite powerful and have shown great potential. 
-                    The main drawback of these models is that they can be disrupted by alterations in the video content, which do not necessarily require considerable effort. Therefore, in order to investigate the robustness of VLMs to real-world adversarial attacks, we present <strong>MVTamperBench</strong> that aims to fill in this gap. 
-                    Our benchmark is based on MVBench dataset and implements five various techniques to try and introduce realistic alterations like substitution, masking, dropping, repeating, and rotating that may be encountered in real life scenarios including media editing, misinformation or even surveillance tampering.
-                    We employed a tailored codebase for the purpose of handling the aforementioned modifications to MVBench videos with the aim of addressing diverse test cases to the VLMs. By testing state-of-the-art models against this benchmark, we accomplished our goals of understanding such manipulable content model weaknesses and strengths and the weaknesses and strengths of the manipulated models. 
-                    According to our analysis, VLMs that are resistant to attempts in tampering still pose a reliable tool that is useful in adversarial situations remain in high demand. As a use case, we embedded the benchmark into VLMEvalKit, which we believe will pave way for future work focused on bolstering model robustness.
-                </p>
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://zeyofu.github.io/blink/">
+              BLINK
+            </a>
+            <a class="navbar-item" href="https://feiwang96.github.io/mDPO/">
+              mDPO
+            </a>
+            <a class="navbar-item" href="https://zeyofu.github.io/CommonsenseT2I/">
+              Commonsense-T2I
+            </a>
+          </div>
+        </div> -->
+      </div>
+
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title"><img src="static/images/icon.png" width="50" /> MVTamperBench: Adversarial Benchmark for Evaluating Video-Language Models</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://feiwang96.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Amit Agarwal</b></font>
+                </a><sup>1†</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://zeyofu.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Srikant Panda</b></font>
+                </a><sup>2†</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://jyhuang36.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Angeline Charles</b></font>
+                </a><sup>3†</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/bhargava-kumar/" target="_blank">
+                  <font color="#B082C9"><b>Bhargava Kumar</b></font>
+                </a><sup>4</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/hitesh-patel-63ba9210a/" target="_blank">
+                  <font color="#B082C9"><b>Hitesh Patel</b></font>
+                </a><sup>5</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/priyaranjanpattnayak/" target="_blank">
+                  <font color="#B082C9"><b>Priyaranjan Pattnayak</b></font>
+                </a><sup>6</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/taki-hasan-rafi-80a9b2169/" target="_blank">
+                  <font color="#B082C9"><b>Taki Hasan Rafi</b></font>
+                </a><sup>7</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/tejaswini-kumar/" target="_blank">
+                  <font color="#B082C9"><b>Tejaswini Kumar</b></font>
+                </a><sup>4</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://wzhouad.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Dong-Kyu Chae</b></font>
+                </a><sup>7</sup>&emsp;
+              </span>
+              <!-- <span class="author-block">
+                <a href="https://drogozhang.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Kai Zhang</b></font>
+                </a><sup>7</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://tianyi-lorena-yan-me.web.app/" target="_blank">
+                  <font color="#B082C9"><b>Tianyi Lorena Yan</b></font>
+                </a><sup>1</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://jacky-laznake-personalweb.vercel.app/" target="_blank">
+                  <font color="#B082C9"><b>Wenjie Jacky Mo</b></font>
+                </a><sup>1</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~Hsiang-Hui_Liu1" target="_blank">
+                  <font color="#B082C9"><b>Hsiang-Hui Liu</b></font>
+                </a><sup>3</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://lupantech.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Pan Lu</b></font>
+                </a><sup>6</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://chunyuan.li/" target="_blank">
+                  <font color="#B082C9"><b>Chunyuan Li</b></font>
+                </a><sup>8</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://xiaocw11.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Chaowei Xiao</b></font>
+                </a><sup>5</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="http://web.cs.ucla.edu/~kwchang/" target="_blank">
+                  <font color="#B082C9"><b>Kai-Wei Chang</b></font>
+                </a><sup>6</sup>&emsp;
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://www.cis.upenn.edu/~danroth/" target="_blank">
+                  <font color="#B082C9"><b>Dan Roth</b></font>
+                </a><sup>2</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://sheng-z.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Sheng Zhang</b></font>
+                </a><sup>8</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://www.microsoft.com/en-us/research/people/hoifung/" target="_blank">
+                  <font color="#B082C9"><b>Hoifung Poon</b></font>
+                </a><sup>8</sup>&emsp;
+              </span>
+              <span class="author-block">
+                <a href="https://muhaochen.github.io/" target="_blank">
+                  <font color="#B082C9"><b>Muhao Chen</b></font>
+                </a><sup>4</sup>&emsp;
+              </span> -->
             </div>
-        </section>
 
-        <div class="line-design"><span>Visuals</span></div>
-
-        <section id="images">
-            
-            <h2>Images</h2>
-            
-            <img src="Tampering_Frames.png" alt="Example Frames">
-            <div class = "images">
-            <p>The above image gives us the clear idea of how these tampering effects are introduced into a video. 
-                It shows us the comparison study of frames from the original video and their frames from respective tampering effects. 
-                In this case, one frame is taken from each one second and was displayed for comparative study on how it works.</p>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <sup>1</sup>LJMU, Liverpool&emsp;
+                <sup>2</sup>BIT, Pilani&emsp;
+                <sup>3</sup>CU, Bangalore&emsp;
+                <sup>4</sup>CU, New York&emsp;
+                <sup>5</sup>NYU, New York&emsp;
+                <sup>6</sup>UW, Seattle &emsp;
+                <sup>7</sup>HU, Seoul
+              </span>
+              <!-- <span class="author-block">Institution Name<br>Conferance name and year</span> -->
+              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution</small></span> -->
             </div>
-        </section>
 
-        <section id="graphs">
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <!-- <sup>*</sup>Equal Leadership&emsp; -->
+                <sup>†</sup>Equal Contribution
+              </span>
+            </div>
 
-            <h2>Graphs</h2>
-            
-            <img src="Distribution image.png" alt="Video Length Distribution Graph">
-            <div class = "Graphs">
-            <p>The above Distribution graph represents the distribution of the lengths of tampered videos in seconds.
-                The x -axis implies the lengths of the videos within the range of 0 to 175 seconds. 
-                The y-axis will represent the number of videos per length. This histogram shows that most of the videos are concentrated near 0.
-                This means that most of the videos are relatively short. 
-                As the video length increases, the number of videos decreases, with fewer longer videos observed.</p>
-            </div>
-            <img src="OverallPerformancebar.jpg" alt="Overall Performance of the Models">
-            <div class = "Graphs">
-                <p>The above Overall Model Performance graph shows the overall accuracy of different models, where InternVL2-8B outperforms all with the highest accuracy above 80%. Aria and Phi-3.5-Vision follow closely with slightly lower performance.
-                 Models like Vintern-3B-beta and Llama-2-13B Vision-Instruct show moderate performance, while NVLM and VILA models exhibit relatively lower accuracies, with VILA-1.5-13B performing the least effectively.</p>
-            </div>
-            <img src="Heatmap_of_Effects.jpg" alt="Accuracy of Tampering Effects Across the Models">
-            <div class = "Graphs">
-            <p>The above heatmap indicates that InternVL2.8B is the strongest, with high accuracy held for all tampering effects while models such as VITL1.5-13b and VITL1.5-3b are highly susceptible to data tamperings.
-                All tampering effects, including masking and substitution, tend to decrease the accuracy in most models, except that InternVL2.8B and especially PHI-3.5-Vision react slightly stronger. 
-                This analysis therefore calls for model improvement, more so to address how well the models can cope with tampered data in such real-world applications.</p>
-            </div>
-        </section>
+            <div class="content has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
 
-        <section id="leaderboard">
-            <h2>Leaderboard</h2>
-            <div class="links">
-                <p>Check the leaderboard for the top-performing models on our benchmark.</p>
-                <a href="https://huggingface.co/spaces/opencompass/open_vlm_leaderboard" target="_blank">View Leaderboard</a>
-            </div>
-        </section>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/Srikant86/MVTamperBench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-database"></i>
+                    </span>
+                    <span>HF Dataset</span>
+                  </a>
+                </span>
+                </span>
 
-        <section id="links">
-            <h2>Relevant Links</h2>
-            <div class="links">
-                <a href="https://github.com/amitbcp/TamperBench" target="_blank">GitHub Repository</a>
-                <a href="https://huggingface.co/datasets/Srikant86/MVTamperBench/tree/main/video" target="_blank">Hugging Face Repo</a>
-            </div>
-        </section>
-    </main>
+                <span class="link-block">
+                  <a href="https://github.com/amitbcp/TamperBench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
 
-    <footer>
-        <p>&copy; 2024 VLM Benchmark. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="https://github.com/amitbcp/TamperBench" target="_blank"><img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="GitHub"></a>
-            <a href="https://huggingface.co/datasets/Srikant86/MVTamperBench/tree/main/video" target="_blank"><img src="https://chunte-hfba.static.hf.space/images/Brand%20Logos/hf-logo-with-title.png" alt="Hugging Face"></a>
+                <span class="link-block">
+                  <a href="https://www.linkedin.com/in/amitagarwal6/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-linkedin"></i>
+                    </span>
+                    <span>LinkedIn</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser image-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3 has-text-centered">What is MVTamperBench?</h2>
+        <h2 class="subtitle has-text-justified">
+          <span style="font-weight:bold;">MVTamperBench </span>
+          is a benchmark containing 18495 videos across 5 different video tampering scenarios, providing robust evaluation on 16
+          video understanding tasks.
+        </h2>
+        <img src="static/images/teaser.png" height="100%"  />
+        <!-- <h2 class="subtitle has-text-centered">Example tasks in <span style="font-weight:bold;">BLINK</span>.</h2> -->
+        <h2 class="hero-body has-text-centered">
+          <!-- <br> -->
+          Each example comes from one task in <span style="font-weight:bold;">MVTamperBench</span>, presenting diverse
+          tampering across temporal relations in videos.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser image -->
+
+
+  <!-- MVTamperBench Comparison -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-five-sixths">
+          <h2 class="title is-3">MVTamperBench -- Novel Features</h2>
+          <!-- <h2 class="title is-3">MuirBench Benchmark -- Unique Features of MuirBench?</h2> -->
+          <h2 class="content has-text-justified">
+            <!-- <img src="static/images/comparison.png" height="100%" /> -->
+            <br>
+            <ul>
+              <li><b>MVTamperBench</b> provides a <i><b>systematic evaluation</b></i> on models <i><b>robustness against video
+                    tampering</b></i>effects by introducing diverse manipulations,
+                enabling a deeper understanding of model strengths and vulnerabilities under adversarial scenarios.</li>
+              <li><b>MVTamperBench</b> evaluates video tampering on a <i><b>comprehensive range of 20 temporal understanding
+                    abilities</b></i>, e.g. scene transition, action localization, character order, ..., etc.</li>
+              <li><b>MVTamperBench</b> contains <i><b>9 diverse spatial setup and relations to evaluate tampering</b></i>, e.g. counting, pose, cognition, action, scene, objects,...., etc. etc. </li>
+              <br>
+            </ul>
+            <!-- <div class="myrow">
+              <div class="mycolumn">
+                <img src="static/images/distribution.png" style="width:85%">
+              </div>
+              <div class="mycolumn">
+                <img src="static/images/relation.png" style="width:100%">
+              </div>
+            </div> -->
+
+            <h2 class="content has-text-justified">
+              <ul>
+                <br>
+                  <!-- <li><b>MVTamperBench</b> provides a <i><b>systematic evaluation</b></i> on models <i><b>robustness against video
+                        tampering</b></i>effects by introducing diverse manipulations,
+                    enabling a deeper understanding of model strengths and vulnerabilities under adversarial scenarios.</li> -->
+                <br>
+                <!-- <img src="static/images/unanswerable.png" height="100%" /> -->
+              </ul>
+            </h2>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Paper abstract -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-five-sixths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent advancements in multimodal research reveal an increasing trend of leveraging Vision-Language Models (VLMs) for
+              tackling complex video understanding tasks. However, there is still a lack of research on how stable these models are in
+              real-world situations and how susceptible they are to disruptions from realistic perturbations. So we present
+              MVTamperBench, a thorough benchmark created to assess VLM resilience against manipulations including rotation, dropping,
+              masking, substitution, and repetition in order to address this issue. <b>MVTamperBench</b> systematically evaluates
+              state-of-the-art models and reveals significant variability in robustness. Where models like InternVL2-4B and MOLMO
+              variants achieve near-perfect accuracy across all manipulations, while models like Llama-VILA1.5-8b and llavaonevision
+              variants show severe vulnerabilities with accuracy near zero. To facilitate adoption, we have included the benchmark
+              into the VLMEvalKit, enabling seamless evaluation and promoting enhancements in model robustness. Our research is an
+              important step in creating dependable VLMs that can function well in the face of real-world disturbances.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+
+
+  <!-- Paper Qualitative -->
+  <!-- <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-five-sixths">
+          <h2 class="title is-3">Qualitative Results</h2>
+          <img src="static/images/qual.png" width="100%" />
+          <!-- <h2 class="content has-text-centered">
+          Qualitative results on <b>MuirBench</b>.
+        </h2> -->
+          <!-- <h2 class="content has-text-justified">
+            For each task, we show the ground truth (in blue), and choice of GPT-4o, Gemini Pro, and Mantis. Notice that
+            the markers are intentionally added for visualization purposes.
+          </h2>
+
+        </div>
+      </div>
+    </div>
+  </section> --> -->
+
+
+  <!-- Paper Quantitative -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-five-sixths">
+          <h2 class="title is-3">Quantitative Results</h2>
+          <img src="static/images/quan.png" height="90%" />
+          <h2 class="content has-text-centered">
+            Results of different models on <b>MVTamperBench</b>. The first row shows different tampering types and the overall performance.
+            We see that models performance varies drastically across model families with InternVL2-8B being more robust to tampering detection compared to VILA models
+          </h2>
+          <h2 class="content has-text-justified">
+            <!-- The mean accuracy of 7B and 13B open-source Multimodal LLMs hover around <b>35–42%</b>, which is similar to <b>random guess (38.09%)</b>. The most proficient open-source model, LLaVA-v1.6-34B, achieves an accuracy of 45.05%. Even the most advanced models, GPT-4V and Gemini Pro and Claude 3 OPUS, achieve accuracies of only 51.26%, 45.72%, and 44.11% respectively. Their performance are merely 13.17%, 7.63% and 6.02% better than random guessing and lag behind human performance by 44.44%, 49.98% and 51.59%. Notably, for certain tasks such as jigsaw, semantic correspondence, multi-view reasoning, object localization, and relative reflectance, some multimodal LLMs even underperform compared to random guessing. -->
+
+            Overall performance: the average accuracies of the most advanced multimodal LLMs on <b>MVTamperBench</b> are no
+            better than 84%, which are still far from enabling satisfactory utility. The mean accuracies of open-source
+            multimodal LLMs that have considered video hover between 27.54% and 84.80%. Notably, there is no obvious correlation between model sizes and performances,
+            indicating the importance of training data and training processes in developing multimodal LLMs with
+            better temporal and spatial understanding in videos/scences and multi-image scenarios. For certain models and tasks, some results are only on par or even
+            below random guessing.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Paper Analysis -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Experiment Analysis</h2> <br>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-five-sixths">
+          <h2 class="title is-5">
+            1. In which tampering type do multimodal LLMs show relative strengths and weaknesses?
+            <h2 class="content has-text-justified">
+              As in the figure, we observe that multimodal LLMs perform relatively better on image-text matching, visual
+              retrieval, and diagram understanding. In contrast, multi-image ordering and visual grounding appear to be
+              more challenging for these models, because these tasks require understanding the whole multi-image context
+              and conducting more complicated reasoning processes across images and modalities afterwards.
+            </h2>
+            <div class="columns is-centered has-text-centered">
+              <img src="static/images/effects_on_models_radar_chart_from_dataframe.png" width="60%" />
+              <!-- <img src="static/images/radar_v1.png" width="60%" /> -->
+            </div>
+            <br>
+            <h2 class="title is-5">2. How do multimodal LLMs perform on average?</h2>
+            <h2 class="content has-text-justified">
+              We compare performances overall performance for all the
+              studied models. InternVL2-8B consistently outperformed other models, achieving the highest accuracy across all tampering effects.
+              Conversely, VILA1.5-13b and VILA1.5-3b displayed significant vulnerabilities, particularly under Dropping and
+              Substitution manipulations.
+            </h2>
+            <div class="columns is-centered has-text-centered">
+              <img src="static/images/overall_performance.png" width="80%" />
+            </div>
+            <br>
+            <!-- <h2 class="title is-5">3. Are errors caused by specific image positions or unanserable types? </h2>
+            <h2 class="content has-text-justified">
+              <ul>
+                <li>
+                  As in the left figure, we analyze the error rates of varying input positions of images and report the
+                  performance of GPT-4o, GeminiProVision, and Mantis-8B-Idefics2. The highest accuracy is achieved when
+                  images are positioned in options, while the highest error rate can be observed when images are in the
+                  middle of questions. This consistent trend across different models suggests that the position of
+                  images within a question correlates with the error rate.
+                </li>
+                <li>
+                  As in the right figure, results show that the error rate also correlates with the type of unanswerable
+                  instances. All the three models perform relatively better when we only change the questions to make it
+                  incompatible with original images and options. However, all models are confused when the correct
+                  option is removed and fail to choose “none of the other options” in this scenario. The performance on
+                  unanswerable instances created by reordering or replacing images is divergent. Notably, GPT-4o
+                  performs much better than the other models in these cases.
+                </li>
+              </ul>
+            </h2> -->
+
+            <!-- <div class="myrow">
+              <div class="mycolumn">
+                <img src="static/images/perf_image_position.png" style="width:95%">
+              </div>
+              <div class="mycolumn">
+                <img src="static/images/perf_no_answer.png" style="width:95%">
+              </div>
+            </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        @article{mvtamperbench2024,
+        title={MVTamperBench: A Benchmark for Robustness Against Video Tampering Effects},
+        author={Amit Agarwal, Srikant Panda, Angeline, Bhargava, Hitesh, Priyan, Taki, Tejaswini},
+        journal={Journal of Video Understanding},
+        year={2024}
+        }
+      </code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
 </body>
+
 </html>

@@ -19,7 +19,7 @@ This benchmark facilitates robust evaluations using state-of-the-art models acro
 
 ## Dataset
 
-The dataset for MVTamperBench is derived from the MVBench collection. It includes videos that are systematically tampered to test the robustness of models against adversarial effects. 
+The dataset for MVTamperBench is derived from the MVBench collection. It includes videos that are systematically tampered to test the robustness of models against adversarial effects.
 
 ### Download Dataset
 You can download the dataset from the following link:
@@ -123,7 +123,7 @@ If you use MVTamperBench in your research, please cite:
 ```bibtex
 @article{mvtamperbench2024,
   title={MVTamperBench: A Benchmark for Robustness Against Video Tampering Effects},
-  author={Your Name and Collaborators},
+  author={Amit Agarwal, Srikant Panda, Angeline, Bhargava, Hitesh, Priyan, Taki, Tejaswini},
   journal={Journal of Video Understanding},
   year={2024}
 }

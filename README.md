@@ -121,11 +121,14 @@ MVBench-Dataset/
 ## Citation
 If you use MVTamperBench in your research, please cite:
 ```bibtex
-@article{mvtamperbench2024,
-  title={MVTamperBench: A Benchmark for Robustness Against Video Tampering Effects},
-  author={Amit Agarwal, Srikant Panda, Angeline, Bhargava, Hitesh, Priyan, Taki, Tejaswini},
-  journal={Journal of Video Understanding},
-  year={2024}
+@misc{agarwal2024mvtamperbenchevaluatingrobustnessvisionlanguage,
+      title={MVTamperBench: Evaluating Robustness of Vision-Language Models}, 
+      author={Amit Agarwal and Srikant Panda and Angeline Charles and Bhargava Kumar and Hitesh Patel and Priyanranjan Pattnayak and Taki Hasan Rafi and Tejaswini Kumar and Dong-Kyu Chae},
+      year={2024},
+      eprint={2412.19794},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.19794}, 
 }
 ```
 

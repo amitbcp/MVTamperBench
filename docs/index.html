@@ -10,7 +10,7 @@
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords"
-    content="Multimodal Benchmark, Multimodal Learning, Vision and Language Dataset, Vision Language Model, LLM, VLM, LMM">
+    content="Multimodal Benchmark, Multimodal Learning, Vision and Language Dataset, Vision Language Model, LLM, VLM, LMM, MLLM">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -291,8 +291,14 @@
       <div class="hero-body">
         <h2 class="title is-3 has-text-centered">What is MVTamperBench?</h2>
         <h2 class="subtitle has-text-justified">
+          By focusing on tampering resilience and real-world challenges like clickbait detection,
+          harmful content moderation, and policy enforcement,
           <span style="font-weight:bold;">MVTamperBench </span>
-          is a benchmark containing 18495 videos across 5 different video tampering scenarios, providing robust evaluation on 19
+          establishes a benchmark for developing tamper-resilient AI systems. It advances adversarial robustness
+          in video understanding, fostering trust in LMMs for safety-critical domains.
+          <br>
+          <span style="font-weight:bold;">MVTamperBench </span>
+          contains 17435 tampered videos and 3487 untampered videos across 5 different video tampering scenarios, providing robust evaluation on 19
           video understanding tasks.
         </h2>
         <img src="static/images/teaser.png" height="100%"  />
@@ -309,14 +315,14 @@
 
 
   <!-- MVTamperBench Comparison -->
-  <section class="section hero is-light">
+  <!-- <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-five-sixths">
           <h2 class="title is-3">MVTamperBench -- Novel Features</h2>
-          <!-- <h2 class="title is-3">MuirBench Benchmark -- Unique Features of MuirBench?</h2> -->
+          <h2 class="title is-3">MuirBench Benchmark -- Unique Features of MuirBench?</h2>
           <h2 class="content has-text-justified">
-            <!-- <img src="static/images/comparison.png" height="100%" /> -->
+            <img src="static/images/comparison.png" height="100%" />
             <br>
             <ul>
               <li><b>MVTamperBench</b> provides a <i><b>systematic evaluation</b></i> on models <i><b>robustness against video
@@ -327,23 +333,23 @@
               <li><b>MVTamperBench</b> contains <i><b>9 diverse spatial setup and relations to evaluate tampering</b></i>, e.g. counting, pose, cognition, action, scene, objects,...., etc. etc. </li>
               <br>
             </ul>
-            <!-- <div class="myrow">
+             <div class="myrow">
               <div class="mycolumn">
                 <img src="static/images/distribution.png" style="width:85%">
               </div>
               <div class="mycolumn">
                 <img src="static/images/relation.png" style="width:100%">
               </div>
-            </div> -->
+            </div>
 
             <h2 class="content has-text-justified">
               <ul>
                 <br>
-                  <!-- <li><b>MVTamperBench</b> provides a <i><b>systematic evaluation</b></i> on models <i><b>robustness against video
+                  <li><b>MVTamperBench</b> provides a <i><b>systematic evaluation</b></i> on models <i><b>robustness against video
                         tampering</b></i>effects by introducing diverse manipulations,
-                    enabling a deeper understanding of model strengths and vulnerabilities under adversarial scenarios.</li> -->
+                    enabling a deeper understanding of model strengths and vulnerabilities under adversarial scenarios.</li>
                 <br>
-                <!-- <img src="static/images/unanswerable.png" height="100%" /> -->
+                <img src="static/images/unanswerable.png" height="100%" />
               </ul>
             </h2>
 
@@ -351,7 +357,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <!-- Paper abstract -->
@@ -362,16 +368,19 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Recent advancements in multimodal research reveal an increasing trend of leveraging Vision-Language Models (VLMs) for
-              tackling complex video understanding tasks. However, there is still a lack of research on how stable these models are in
-              real-world situations and how susceptible they are to disruptions from realistic perturbations. So we present
-              MVTamperBench, a thorough benchmark created to assess VLM resilience against manipulations including rotation, dropping,
-              masking, substitution, and repetition in order to address this issue. <b>MVTamperBench</b> systematically evaluates
-              state-of-the-art models and reveals significant variability in robustness. Where models like InternVL2-4B and MOLMO
-              variants achieve near-perfect accuracy across all manipulations, while models like Llama-VILA1.5-8b and llavaonevision
-              variants show severe vulnerabilities with accuracy near zero. To facilitate adoption, we have included the benchmark
-              into the VLMEvalKit, enabling seamless evaluation and promoting enhancements in model robustness. Our research is an
-              important step in creating dependable VLMs that can function well in the face of real-world disturbances.
+              Multimodal Large Language Models (MLLMs), also known as Large Multi-modal Models (LMMs), are recent advancement of
+              Vision-Language Models (VLMs), that have driven major advances in video understanding, yet their vulnerability to
+              adversarial tampering and manipulations remains underexplored. To address this gap, we introduce \textbf{MVTamperBench},
+              a benchmark that systematically evaluates MLLM robustness against five prevalent tampering techniques: rotation,
+              masking, substitution, repetition, and dropping. Built from 3.4K original videos—expanded to over 17K tampered clips
+              spanning 19 video tasks.
+              <br></br>
+              MVTamperBench challenges models to detect manipulations in spatial and temporal coherence. We evaluate 45 recent MLLMs
+              from 15+ model families, revealing substantial variability in resilience across tampering types and showing that larger
+              parameter counts do not necessarily guarantee robustness. MVTamperBench sets a new benchmark for developing
+              tamper-resilient MLLM in safety-critical applications, including detecting clickbait, preventing harmful content
+              distribution, and enforcing policies on media platforms. We release all
+              code and data to foster open research in trustworthy video understanding.
             </p>
           </div>
         </div>
@@ -411,15 +420,15 @@
           <h2 class="title is-3">Quantitative Results</h2>
           <img src="static/images/quan.png" height="90%" />
           <h2 class="content has-text-centered">
-            Results of different models on <b>MVTamperBench</b>. The first row shows different tampering types and the overall performance.
-            We see that models performance varies drastically across model families with InternVL2-8B being more robust to tampering detection compared to VILA models
+            Results of different models on <b>MVTamperBench</b>. The first row shows different tampering types and the overall performance across tamper-types.
+            We see that models performance varies drastically across model families and sizes. We further categorize our the models based on Perfomance & Model Size.
           </h2>
           <h2 class="content has-text-justified">
             <!-- The mean accuracy of 7B and 13B open-source Multimodal LLMs hover around <b>35–42%</b>, which is similar to <b>random guess (38.09%)</b>. The most proficient open-source model, LLaVA-v1.6-34B, achieves an accuracy of 45.05%. Even the most advanced models, GPT-4V and Gemini Pro and Claude 3 OPUS, achieve accuracies of only 51.26%, 45.72%, and 44.11% respectively. Their performance are merely 13.17%, 7.63% and 6.02% better than random guessing and lag behind human performance by 44.44%, 49.98% and 51.59%. Notably, for certain tasks such as jigsaw, semantic correspondence, multi-view reasoning, object localization, and relative reflectance, some multimodal LLMs even underperform compared to random guessing. -->
 
             Overall performance: the average accuracies of the most advanced multimodal LLMs on <b>MVTamperBench</b> are no
-            better than 84%, which are still far from enabling satisfactory utility. The mean accuracies of open-source
-            multimodal LLMs that have considered video hover between 27.54% and 84.80%. Notably, there is no obvious correlation between model sizes and performances,
+            better than 87%, which are still far from enabling satisfactory utility. The mean accuracies of open-source
+            multimodal LLMs that have considered video hover between 27.54% and 87.90%. Notably, there is no obvious correlation between model sizes and performances,
             indicating the importance of training data and training processes in developing multimodal LLMs with
             better temporal and spatial understanding in videos/scences and multi-image scenarios. For certain models and tasks, some results are only on par or even
             below random guessing.
@@ -439,27 +448,70 @@
       <div class="columns is-centered">
         <div class="column is-five-sixths">
           <h2 class="title is-5">
-            1. In which tampering type do multimodal LLMs show relative strengths and weaknesses?
+            1. Does the MLLM performance depend on it's size ?
             <h2 class="content has-text-justified">
-              As in the figure, we observe that multimodal LLMs perform relatively better on image-text matching, visual
+              As in the figure, we observe that MLLMs performance are spread across the spectrum is not
+              co-releated to the model-size (Pearson Correlation = 0.05). We also observe the few MLLMs
+              have better performance for smaller models compared to their larger variant (Molmo-1B vs Molmo-72B),
+              while some share similar performance between smaller and large variants (like LLama-3.2-Vision 11B & 90B).
+              <br><br>
+              <!-- perform relatively better on image-text matching, visual
               retrieval, and diagram understanding. In contrast, multi-image ordering and visual grounding appear to be
               more challenging for these models, because these tasks require understanding the whole multi-image context
-              and conducting more complicated reasoning processes across images and modalities afterwards.
+              and conducting more complicated reasoning processes across images and modalities afterwards. -->
             </h2>
             <div class="columns is-centered has-text-centered">
-              <img src="static/images/effects_on_models_radar_chart_from_dataframe.png" width="60%" />
+              <!-- <img src="static/images/overall_performance.png" width="80%" /> -->
+              <img src="static/images/f1_dist_across_model.png" width="60%" />
+              <img src="static/images/correlation_modelsize_perf.png" width="60%" />
+            </div>
+            <br>
+          <h2 class="title is-5">
+            2. In which Video Understanding tasks do MLLMs show relative strengths and weaknesses?
+            <h2 class="content has-text-justified">
+              While certain tasks exhibit high detection F1 score, others remain significantly more challenging.
+              <br><br>
+
+              Easier Tasks such as <em>Episodic Reasoning, Scene Transition, Ego-centric Navigation, and State Change</em>
+              consistently achieve higher F1 scores, as shown in figure below. These tasks often involve shorter
+              temporal dependencies and simpler spatial reasoning, allowing models to rely on pre-trained vision-language features
+              rather than advanced temporal reasoning.
+
+              <br><br>
+              Challenging Tasks such as <em>Action Prediction, Counterfactual Inference, and
+              Fine-Grained Action</em> pose significant challenges for tampering detection. These tasks inherently require complex
+              temporal reasoning and context preservation, making them highly sensitive to disruptions introduced by tampering
+              techniques.
+
+              <!-- As in the figure, we observe that multimodal LLMs perform relatively better on image-text matching, visual
+              retrieval, and diagram understanding. In contrast, multi-image ordering and visual grounding appear to be
+              more challenging for these models, because these tasks require understanding the whole multi-image context
+              and conducting more complicated reasoning processes across images and modalities afterwards. -->
+            </h2>
+            <div class="columns is-centered has-text-centered">
+              <img src="static/images/f1_by_task_type.png" width="80%" />
               <!-- <img src="static/images/radar_v1.png" width="60%" /> -->
             </div>
             <br>
-            <h2 class="title is-5">2. How do multimodal LLMs perform on average?</h2>
+            <h2 class="title is-5">3. How do different tampering types impact performance across the video taks and MLLMs?</h2>
             <h2 class="content has-text-justified">
               We compare performances overall performance for all the
-              studied models. InternVL2-8B consistently outperformed other models, achieving the highest accuracy across all tampering effects.
-              Conversely, VILA1.5-13b and VILA1.5-3b displayed significant vulnerabilities, particularly under Dropping and
-              Substitution manipulations.
+              studied models across the proposed tamper-types. Masking is relatively easier across as it
+              creates information loss which the MLLMs are able to manage better than other spatial (Rotation)
+              and temporal (Repetition, Substitution, Dropping) tampering.
             </h2>
             <div class="columns is-centered has-text-centered">
-              <img src="static/images/overall_performance.png" width="80%" />
+              <img src="static/images/f1_by_tamper_task_type.png" width="100%" style="display: block; margin: 0 auto;"/>
+            </div>
+            <br>
+            <h2 class="content has-text-justified">
+              We observe a similar trend across the various video tasks, where masking is either easier in few
+              video tasks or creates similar challenges like other tamper types. Video Tasks like <emp>Action Predition,
+              Action Count, Scene Transition</emp> overall struggle the most due to tampering.
+            </h2>
+            <div class="columns is-centered has-text-centered">
+                <!-- <img src="static/images/f1_by_tamper_task_type.png" width="80%" style="display: block; margin: 0 auto;" /> -->
+                <img src="static/images/f1_radar_task_tamper_type.png" width="100%" style="display: block; margin: 0 auto;" />
             </div>
             <br>
             <!-- <h2 class="title is-5">3. Are errors caused by specific image positions or unanserable types? </h2>

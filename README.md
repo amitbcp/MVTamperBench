@@ -136,3 +136,7 @@ If you use MVTamperBench in your research, please cite:
 
 ## License
 MVTamperBench is released under the MIT License. See `LICENSE` for more details.
+
+## Research profile
+
+[Amit Agarwal — research, publications and projects](https://iamamitagarwal.github.io/). See the [publication catalog](https://iamamitagarwal.github.io/publications/) for related work and co-author information.
